@@ -1,0 +1,37 @@
+CREATE DATABASE CUSTOMERSDB;
+USE CUSTOMERSDB;
+
+
+-- 1. Display the first name, last name, city and state for all customers who live in the same state as customer number 170 (Customers table
+SELECT 
+    CUSTOMERSDB.CUSTOMERS.FIRST_NAME,
+    CUSTOMERSDB.CUSTOMERS.LAST_NAME,
+    CUSTOMERSDB.CUSTOMERS.CITY,
+   CUSTOMERSDB .CUSTOMERS.STATE
+    
+FROM
+    CUSTOMERSDB.CUSTOMERS
+WHERE
+   STATE=(SELECT    CUSTOMERSDB .CUSTOMERS.STATE
+ FROM CUSTOMERSDB.CUSTOMERS WHERE CUSTOMERS.CUSTOMER_ID = "178");
+    
+
+	
+-- 	2. Display the package number, internet speed and sector number for all packages whose sector number equals to the sector number of 
+	-- package number 10 (Packages table).
+SELECT 
+    CUSTOMERSDB.PACKAGES.PACK_ID,
+    CUSTOMERSDB.PACKAGES.SPEED,
+    CUSTOMERSDB.PACKAGES.SECTOR_ID
+FROM
+    CUSTOMERSDB.PACKAGES
+	
+WHERE
+SECTOR_ID=(SELECT CUSTOMERSDB.PACKAGES.SECTOR_ID
+ FROM CUSTOMERSDB.PACKAGES WHERE CUSTOMERSDB.PACKAGES.PACK_ID=10);
+
+
+
+
+
+
